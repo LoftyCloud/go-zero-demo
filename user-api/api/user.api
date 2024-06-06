@@ -1,0 +1,65 @@
+syntax = "v1"
+
+info (
+	author: "hui"
+	date:   "2023-06-03"
+	desc:   "api语法"
+)
+
+// 相当于业务的描述文件
+
+type (
+	// 定义登录接口的请求体
+	UserInfoReq {
+		UserId int64 `json:"userId"`
+	}
+	// 定义登录接口的响应体
+	UserInfoResp {
+		UserId   int64  `json:"id"`
+		Name string `json:"name"`
+	}
+)
+
+type (
+	UserCreateReq {
+		Name string `json:"name"`
+		Mobile   string `json:"mobile"`
+	}
+	UserCreateResp {
+		Flag bool `json:"flag"`
+	}
+)
+
+type (
+	UserUpdateReq {
+		UserId   int64  `json:"id"`
+		Name string `json:"name"`
+	}
+	UserUpdateResp {
+		Flag bool `json:"flag"`
+	}
+)
+
+// 可以通过分组为某些路由添加middleware
+@server (
+	// handler:
+	group: user // handler组
+	// perfix: user // 路由组（前缀）
+	// middleware:TestMiddle  // 添加局部中间件
+)
+
+service user {
+	@doc "获取用户信息"
+	@handler userInfo
+	// 定义接口
+	get /user/info (UserInfoReq) returns (UserInfoResp)
+
+	@doc "新增用户"
+	@handler userCreate
+	post /user/create (UserCreateReq) returns (UserCreateResp)
+
+	@doc "修改用户信息"
+	@handler userUpdate
+	post /user/update (UserUpdateReq) returns (UserUpdateResp)
+}
+

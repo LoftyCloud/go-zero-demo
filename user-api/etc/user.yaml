@@ -1,0 +1,21 @@
+# 配置文件，映射至config中
+
+Name: user
+Host: 0.0.0.0
+Port: 8888
+
+Log:
+  ServiceName: user-api
+  Mode: file
+  path: logs
+  Level: info  # error
+  Encoding: plain
+  # Compress: true  #日志过多时打成压缩包
+  # KeepDays: 7  # 日志保留天数
+
+DB:
+  DataSource: go-zero-root:root@tcp(127.0.0.1:3306)/zero-demo
+
+Cache:
+  - Host: 127.0.0.1:6379  # redis
+    Pass: "123456"
