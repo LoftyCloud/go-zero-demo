@@ -10,7 +10,7 @@ go-zero是对grpc的一种封装，go-zero提供了缓存、熔断等方面的�
 
 2. 例子：https://github.com/zeromicro/zero-examples
 
-![图1 go-zero架构](.\images\image-20240605174422190.png)
+![图1 go-zero架构](https://github.com/LoftyCloud/go-zero-demo/blob/main/images/image-20240605174422190.png)
 
 
 
@@ -54,9 +54,9 @@ goctl env check -i -f
 goctl api go -api 【user.api】 -dir ../ -style goZero
 ```
 
-![图2 .api文档说明，基于此文档生成代码](.\images\image-20240605174506041.png)
+![图2 .api文档说明，基于此文档生成代码](https://github.com/LoftyCloud/go-zero-demo/blob/main/images/image-20240605174506041.png)
 
-![图2 .api文档说明，基于此文档生成代码](.\images\image-20240605174537524.png)
+![图2 .api文档说明，基于此文档生成代码](https://github.com/LoftyCloud/go-zero-demo/blob/main/images/image-20240605174537524.png)
 
 2）goctl model：与java项目单独使用mapper层处理数据库不同，go-zero将操作数据库层与model结合到了一起。goctl model支持从数据库建表sql语句（goctl model mysql ddl）以及已建立好的sql数据表生成model模型（goctl model mysql datasource）。建立好的模型中会自带Insert()、FindOne()等函数方便调用，也可以额外编写其他的数据库操作函数。
 
